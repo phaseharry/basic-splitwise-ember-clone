@@ -5,12 +5,31 @@ import { A as emberArray } from '@ember/array';
 
 export default class BaseComponentComponent extends Component {
   @tracked users = emberArray([]);
-  @tracked currentIdentifier = 0;
+  @tracked expenses = emberArray([]);
+  @tracked userIds = 0;
+  @tracked expenseIds = 0;
 
   @action
   addUser(name) {
-    const newUser = { name, id: this.currentIdentifier + 1 };
-    this.currentIdentifier++;
+    const newUser = {
+      name,
+      id: this.userIds + 1,
+      amountSpent: 0,
+    };
+    this.userIds++;
     this.users.addObject(newUser);
+  }
+
+  @action
+  addExpense(name, cost, userId) {
+    const newExpense = {
+      id: this.expenseIds + 1,
+      name,
+      cost,
+      userId,
+    };
+    this.expenseIds++;
+    this.expenses.addObject(newExpense);
+    console.log(this.expenses);
   }
 }

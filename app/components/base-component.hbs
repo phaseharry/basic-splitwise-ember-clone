@@ -1,4 +1,5 @@
 {{yield}}
 <div>
+  <ExpenseList @addExpense={{this.addExpense}} @expenses={{this.expenses}} @users={{this.users}} />
   <UserList @addUser={{this.addUser}} @users={{this.users}} />
 </div>
