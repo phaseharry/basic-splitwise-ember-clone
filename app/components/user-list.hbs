@@ -1,0 +1,11 @@
+{{yield}}
+<div>
+  <h2>User List</h2>
+  <input value={{this.currentUser}} oninput={{this.handleChange}} placeholder="Name" />
+  <button onclick={{this.handleAdd}}>Add User</button>
+  <div>
+    {{#each @users as |user|}}
+    <UserItem @name={{user.name}} />
+    {{/each}}
+  </div>
+</div>
