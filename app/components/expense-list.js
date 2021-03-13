@@ -5,7 +5,7 @@ import { action } from '@ember/object';
 export default class ExpenseListComponent extends Component {
   @tracked event = '';
   @tracked cost = null;
-  @tracked splitter = null;
+  @tracked userId = null;
 
   @action
   handleChange(ev) {
@@ -15,10 +15,9 @@ export default class ExpenseListComponent extends Component {
   @action
   handleAdd(ev) {
     ev.preventDefault();
-    const { event, cost, splitter } = this;
-    // if (!event || !cost || !splitter) return;
-    if (!event || !cost) return;
-    this.args.addExpense(event, cost, 1); // using 1 for now
+    const { event, cost, userId } = this;
+    if (!event || !cost || !userId) return;
+    this.args.addExpense(event, cost, userId);
     this.event = '';
     this.cost = null;
     this.splitter = null;

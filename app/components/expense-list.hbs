@@ -3,6 +3,12 @@
   <h2>Expenses</h2>
   <input name="event" type="text" value={{this.event}} oninput={{this.handleChange}} placeholder="Event" />
   <input name="cost" type="number" value={{this.cost}} oninput={{this.handleChange}} placeholder="Cost" />
+  <select name="userId" id="user-select" onchange={{this.handleChange}}>
+    <option value={{false}}>--Please select a splitter--</option>
+    {{#each @users as |user| }}
+    <option value={{user.id}}>{{user.name}}</option>
+    {{/each}}
+  </select>
   <button onclick={{this.handleAdd}}>Add Event</button>
   <div>
     {{#each @expenses as |exp|}}

@@ -13,7 +13,7 @@ export default class BaseComponentComponent extends Component {
   addUser(name) {
     const newUser = {
       name,
-      id: this.userIds + 1,
+      id: `${this.userIds + 1}`,
       amountSpent: 0,
     };
     this.userIds++;
@@ -30,6 +30,12 @@ export default class BaseComponentComponent extends Component {
     };
     this.expenseIds++;
     this.expenses.addObject(newExpense);
-    console.log(this.expenses);
+    this.updateUser(userId, cost);
+    console.log(this.users);
+  }
+
+  updateUser(userId, cost) {
+    const user = this.users.findBy('id', userId);
+    user.amountSpent += Number(cost);
   }
 }

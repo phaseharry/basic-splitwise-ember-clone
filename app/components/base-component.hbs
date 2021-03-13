@@ -1,5 +1,6 @@
 {{yield}}
-<div>
-  <ExpenseList @addExpense={{this.addExpense}} @expenses={{this.expenses}} @users={{this.users}} />
+<div style="display: flex; justify-content: space-between; margin: 0 auto; width: 80%;">
+  <ExpenseList @addExpense={{this.addExpense}} @expenses={{this.expenses}} @users={{this.users}}
+    @updateUser={{this.updateUser}} />
   <UserList @addUser={{this.addUser}} @users={{this.users}} />
 </div>
