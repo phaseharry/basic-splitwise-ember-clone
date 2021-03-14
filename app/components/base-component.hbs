@@ -1,6 +1,9 @@
 {{yield}}
-<div style="display: flex; justify-content: space-between; margin: 0 auto; width: 80%;">
-  <ExpenseList @addExpense={{this.addExpense}} @expenses={{this.expenses}} @users={{this.users}}
-    @updateUser={{this.updateUser}} />
-  <UserList @addUser={{this.addUser}} @users={{this.users}} />
+<div>
+  <div class="base-container">
+    <ExpenseList @addExpense={{this.addExpense}} @expenses={{this.expenses}} @deleteExpense={{this.deleteExpense}}
+      @users={{this.users}} @updateUser={{this.updateUser}} />
+    <UserList @addUser={{this.addUser}} @users={{this.users}} />
+  </div>
+  <TalliedResults @users={{this.users}} @totalExpense={{this.totalExpense}} />
 </div>

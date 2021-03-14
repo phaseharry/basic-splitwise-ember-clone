@@ -10,9 +10,9 @@
     {{/each}}
   </select>
   <button onclick={{this.handleAdd}}>Add Event</button>
-  <div>
+  <ul>
     {{#each @expenses as |exp|}}
     <ExpenseItem @name={{exp.name}} @cost={{exp.cost}} />
     {{/each}}
-  </div>
+  </ul>
 </div>

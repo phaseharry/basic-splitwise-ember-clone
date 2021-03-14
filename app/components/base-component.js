@@ -6,6 +6,7 @@ import { A as emberArray } from '@ember/array';
 export default class BaseComponentComponent extends Component {
   @tracked users = emberArray([]);
   @tracked expenses = emberArray([]);
+  @tracked totalExpense = 0;
   @tracked userIds = 0;
   @tracked expenseIds = 0;
 
@@ -21,7 +22,17 @@ export default class BaseComponentComponent extends Component {
   }
 
   @action
+  updateUser(userId, cost) {
+    const user = this.users.findBy('id', userId);
+    const idx = this.users.indexOf(user);
+    this.users.removeAt(idx);
+    user.amountSpent += cost;
+    this.users.insertAt(idx, user);
+  }
+
+  @action
   addExpense(name, cost, userId) {
+    cost = Number(cost);
     const newExpense = {
       id: this.expenseIds + 1,
       name,
@@ -30,12 +41,12 @@ export default class BaseComponentComponent extends Component {
     };
     this.expenseIds++;
     this.expenses.addObject(newExpense);
+    this.totalExpense += cost;
     this.updateUser(userId, cost);
-    console.log(this.users);
   }
 
-  updateUser(userId, cost) {
-    const user = this.users.findBy('id', userId);
-    user.amountSpent += Number(cost);
+  @action
+  deleteExpense(id){
+    this.expenses = this.expenses.filter((exp) => exp.id !== id);
   }
 }

@@ -1,0 +1,7 @@
+{{yield}}
+<div>
+  <h3>Tallied Up Results</h3>
+  {{#each @users as |user|}}
+  <div>{{user.name}}: {{ displaySign (dollarDisplay (calculateTally @totalExpense user @users.length)) }}</div>
+  {{/each}}
+</div>
