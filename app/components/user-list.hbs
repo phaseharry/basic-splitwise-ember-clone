@@ -3,9 +3,11 @@
   <h2>Splitters</h2>
   <input value={{this.currentUser}} oninput={{this.handleChange}} placeholder="Name" />
   <button onclick={{this.handleAdd}}>Add User</button>
-  <div>
+  <ul>
     {{#each @users as |user|}}
-    <UserItem @name={{user.name}} />
+    <li>
+      <span>{{user.name}}</span>
+    </li>
     {{/each}}
-  </div>
+  </ul>
 </div>

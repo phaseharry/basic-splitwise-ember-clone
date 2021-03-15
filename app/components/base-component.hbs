@@ -1,6 +1,6 @@
 {{yield}}
 <div>
-  <div class="base-container">
+  <div local-class="base-container">
     <ExpenseList @addExpense={{this.addExpense}} @expenses={{this.expenses}} @deleteExpense={{this.deleteExpense}}
       @users={{this.users}} @updateUser={{this.updateUser}} />
     <UserList @addUser={{this.addUser}} @users={{this.users}} />

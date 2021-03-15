@@ -1,0 +1,17 @@
+.tallied-results-container {
+  margin: 0 auto;
+  width: 80%;
+} 
+
+.tallied-result-title {
+  text-align: center;
+}
+
+.plus-money {
+  color: #56d364;
+}
+
+.minus-money {
+  color :#FF0000;
+}
+
