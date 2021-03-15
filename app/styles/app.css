@@ -1,7 +1,7 @@
 html {
-  /* background-color: #282c34;
+  background-color: #282c34;
   min-height: 100vh;
-  color: white; */
+  color: white;
 }
 
 body {
@@ -13,9 +13,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.base-container {
-  display: flex;
-  justify-content: space-between;
-  margin: 0 auto;
-  width: 80%;
+ul {
+  height: 7rem;
+  overflow: auto;
+  list-style: none;
 }

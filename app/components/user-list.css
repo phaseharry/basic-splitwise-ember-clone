@@ -1,0 +1,12 @@
+.user-item {
+  border: white 1px solid;
+  border-radius: 10px;
+  padding: 5px 0 5px 10px;
+  margin-bottom: 0.5rem;
+}
+
+.user-list-container {
+  height: 200px;
+  overflow: auto;
+  padding-left: 0;
+}
