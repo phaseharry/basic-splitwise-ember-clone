@@ -2,7 +2,6 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { A as emberArray } from '@ember/array';
-
 export default class BaseComponentComponent extends Component {
   @tracked users = emberArray([]);
   @tracked expenses = emberArray([]);
@@ -47,6 +46,10 @@ export default class BaseComponentComponent extends Component {
 
   @action
   deleteExpense(id){
+    const expense = this.expenses.findBy('id', id);
+    const user = this.users.findBy('id', expense.userId);
+    this.updateUser(user.id, -expense.cost);
+    this.totalExpense -= expense.cost;
     this.expenses = this.expenses.filter((exp) => exp.id !== id);
   }
 }

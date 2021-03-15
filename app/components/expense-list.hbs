@@ -12,7 +12,10 @@
   <button onclick={{this.handleAdd}}>Add Event</button>
   <ul>
     {{#each @expenses as |exp|}}
-    <ExpenseItem @name={{exp.name}} @cost={{exp.cost}} />
+    <li>
+      <span>{{exp.name}}: {{dollarDisplay exp.cost}}</span>
+      <button onclick={{fn @deleteExpense exp.id}}>-</button>
+    </li>
     {{/each}}
   </ul>
 </div>
