@@ -2,7 +2,7 @@
 <div>
   <h2>Splitters</h2>
   <input value={{this.currentUser}} oninput={{this.handleChange}} placeholder="Name" />
-  <button onclick={{this.handleAdd}}>Add User</button>
+  <button local-class="add-user-btn" onclick={{this.handleAdd}}>Add User</button>
   <ul local-class="user-list-container">
     {{#each @users as |user|}}
     <li local-class="user-item">

@@ -5,22 +5,11 @@ import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | base-component', function(hooks) {
   setupRenderingTest(hooks);
-
   test('it renders', async function(assert) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
-
     await render(hbs`<BaseComponent />`);
-
-    assert.equal(this.element.textContent.trim(), '');
-
-    // Template block usage:
-    await render(hbs`
-      <BaseComponent>
-        template block text
-      </BaseComponent>
-    `);
-
+    
     assert.equal(this.element.textContent.trim(), 'template block text');
   });
 });

@@ -1,6 +1,6 @@
 {{yield}}
 <div local-class="tallied-results-container">
-  <h3 local-class="tallied-result-title">Tallied Up Results</h3>
+  <h2 local-class="tallied-result-title">Tallied Up Results</h2>
   {{#each @users as |user|}}
   <div>{{user.name}}: {{ displaySign (dollarDisplay (calculateTally @totalExpense user @users.length)) }}</div>
   {{/each}}

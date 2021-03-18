@@ -1,19 +1,24 @@
 {{yield}}
 <div>
   <h2>Expenses</h2>
-  <input name="event" type="text" value={{this.event}} oninput={{this.handleChange}} placeholder="Event" />
-  <input name="cost" type="number" value={{this.cost}} oninput={{this.handleChange}} placeholder="Cost" />
-  <select name="userId" id="user-select" onchange={{this.handleChange}}>
+  <div local-class="create-expense-container">
+    <input local-class="expense-info-input" name="event" type="text" value={{this.event}} oninput={{this.handleChange}}
+      placeholder="Event" />
+    <input local-class="expense-info-input" name="cost" type="number" value={{this.cost}} oninput={{this.handleChange}}
+      placeholder="Cost" />
+  </div>
+  <select local-class="user-selector" name="userId" id="user-select" onchange={{this.handleChange}}>
     <option value={{false}}>--Please select a splitter--</option>
     {{#each @users as |user| }}
     <option value={{user.id}}>{{user.name}}</option>
     {{/each}}
   </select>
   <button onclick={{this.handleAdd}}>Add Event</button>
-  <ul>
+  <ul local-class="expense-item-container">
     {{#each @expenses as |exp|}}
-    <li>
-      <span>{{exp.name}}: {{dollarDisplay exp.cost}}</span>
+    <li local-class="expense-item">
+      <span>{{exp.name}}</span>
+      <span>{{dollarDisplay exp.cost}}</span>
       <button onclick={{fn @deleteExpense exp.id}}>-</button>
     </li>
     {{/each}}

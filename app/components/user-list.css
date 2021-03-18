@@ -9,4 +9,9 @@
   height: 200px;
   overflow: auto;
   padding-left: 0;
+  padding-right: 10px;
+}
+
+.add-user-btn {
+  margin-left: 5px;
 }

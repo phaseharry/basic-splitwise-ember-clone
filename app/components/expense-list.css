@@ -1,0 +1,26 @@
+.create-expense-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.expense-info-input {
+  margin-bottom: 8px;
+}
+
+.expense-item {
+  border: white 1px solid;
+  border-radius: 10px;
+  padding: 5px 0 5px 10px;
+  margin: 0 auto 0.5rem auto;
+  width: 90%;
+}
+
+.expense-item-container {
+  width: 100%;
+  padding-inline-start: 0px;
+}
+
+.user-selector {
+  border-radius: 30px;
+  border: #E2CCFE 3px solid;
+}
