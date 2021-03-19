@@ -6,21 +6,12 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | user-list', function(hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function(assert) {
+  test('user-list renders', async function(assert) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
-
     await render(hbs`<UserList />`);
-
-    assert.equal(this.element.textContent.trim(), '');
-
-    // Template block usage:
-    await render(hbs`
-      <UserList>
-        template block text
-      </UserList>
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.dom('[data-test-user-list-component]').exists('main element exists');
   });
+
+  test('it displays a list of users that passed down to it', async function(assert){});
 });

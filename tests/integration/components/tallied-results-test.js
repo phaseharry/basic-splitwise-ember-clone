@@ -6,21 +6,21 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | tallied-results', function(hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function(assert) {
+  test('taillied-results renders', async function(assert) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
     await render(hbs`<TalliedResults />`);
+    assert.dom('[data-test-tallied-results-component]').exists('main element exists');
+    // assert.equal(this.element.textContent.trim(), '');
 
-    assert.equal(this.element.textContent.trim(), '');
+    // // Template block usage:
+    // await render(hbs`
+    //   <TalliedResults>
+    //     template block text
+    //   </TalliedResults>
+    // `);
 
-    // Template block usage:
-    await render(hbs`
-      <TalliedResults>
-        template block text
-      </TalliedResults>
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    // assert.equal(this.element.textContent.trim(), 'template block text');
   });
 });
