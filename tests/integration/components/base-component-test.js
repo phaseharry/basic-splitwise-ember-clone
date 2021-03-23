@@ -4,7 +4,6 @@ import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import fillIn from '@ember/test-helpers/dom/fill-in';
 import click from '@ember/test-helpers/dom/click';
-import find from '@ember/test-helpers/dom/find';
 
 /* 
   expense-list  
@@ -48,7 +47,7 @@ module('Integration | Component | base-component', function(hooks) {
     await fillIn('[data-test-event-cost-input]', 167.13);
   })
 
-  // test('It displays the split amount correctly', async function(assert) {
-  //   await render(hbs`<BaseComponent />`);
-  // })
+  test.skip('It displays the split amount as new expenses and users are added', async function(assert) {
+    await render(hbs`<BaseComponent />`);
+  })
 });

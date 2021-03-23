@@ -56,9 +56,9 @@ module('Integration | Component | expense-list', function(hooks) {
       }
     ]);
 
-    await render(hbs`<ExpenseList @expenses={{this.testExpenses}}/>`);
-    // const expenseNodes = this.element.querySelectorAll('[data-test-expense-item]'); 
-    // assert.strictEqual(expenseNodes.length, 4);
+    await render(hbs`<ExpenseList @expenses={{this.testExpenses}} @users={{this.testUsers}}/>`);
+    const expenseNodes = this.element.querySelectorAll('[data-test-expense-item]'); 
+    assert.strictEqual(expenseNodes.length, 4);
     // console.log(expenseNodes[0].textContent.replace(/^\s+|\s+$/g, ""));
     // assert.strictEqual(this.cleanExpenseText(expenseNodes[0].textContent), 'Bar 120.58');
   })

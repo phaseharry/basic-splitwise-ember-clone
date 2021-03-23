@@ -2,6 +2,7 @@
 <div local-class="tallied-results-container" data-test-tallied-results-component>
   <h2 local-class="tallied-result-title">Tallied Up Results</h2>
   {{#each @users as |user|}}
-  <div>{{user.name}}: {{ displaySign (dollarDisplay (calculateTally @totalExpense user @users.length)) }}</div>
+  <div data-test-taillied-user-item>{{user.name}}:
+    {{ displaySign (dollarDisplay (calculateTally @totalExpense user @users.length)) }}</div>
   {{/each}}
 </div>
