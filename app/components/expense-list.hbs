@@ -17,7 +17,7 @@
   <button onclick={{this.handleAdd}} data-test-add-event-btn>Add Event</button>
   <ul local-class="expense-item-container">
     {{#each @expenses as |exp|}}
-    <li local-class="expense-item">
+    <li local-class="expense-item" data-test-expense-item>
       <span>{{exp.name}}</span>
       <span>{{dollarDisplay exp.cost}}</span>
       <button onclick={{fn @deleteExpense exp.id}}>-</button>
