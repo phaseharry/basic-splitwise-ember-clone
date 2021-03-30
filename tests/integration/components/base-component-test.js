@@ -46,9 +46,10 @@ module('Integration | Component | base-component', function(hooks) {
     // creating an expense
     await fillIn('[data-test-event-name-input]', 'Bar');
     await fillIn('[data-test-event-cost-input]', 167.13);
+    // having trouble figuring out event triggers for selection/option elements
   })
 
-  test.only('It displays the split amount as new expenses and users are added', async function(assert) {
+  test('It displays the split amount as new expenses and users are added', async function(assert) {
     this.testExpenses = emberArray([
       {
         "id": 1,

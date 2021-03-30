@@ -1,17 +1,23 @@
 .tallied-results-container {
   margin: 0 auto;
   width: 80%;
-} 
+}
 
 .tallied-result-title {
   text-align: center;
 }
 
 .plus-money {
-  color: #56d364;
+  border: #56d364 1px solid;
 }
 
 .minus-money {
-  color :#FF0000;
+  border: #ff0000 1px solid;
 }
 
+.tallied-item {
+  border-radius: 10px;
+  padding: 5px 0 5px 10px;
+  margin: 0 auto 0.5rem auto;
+  width: 50%;
+}
