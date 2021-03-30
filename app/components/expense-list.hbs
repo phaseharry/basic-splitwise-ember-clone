@@ -2,19 +2,19 @@
 <div data-test-expense-list-component>
   <h2>Expenses</h2>
   <div local-class="create-expense-container">
-    <input local-class="expense-info-input" name="event" type="text" value={{this.event}} oninput={{this.handleChange}}
-      placeholder="Event" data-test-event-name-input />
-    <input local-class="expense-info-input" name="cost" type="number" value={{this.cost}} oninput={{this.handleChange}}
-      placeholder="Cost" data-test-event-cost-input />
+    <input tabindex="3" local-class="expense-info-input" name="event" type="text" value={{this.event}}
+      oninput={{this.handleChange}} placeholder="Event" data-test-event-name-input />
+    <input tabindex="4" local-class="expense-info-input" name="cost" type="number" value={{this.cost}}
+      oninput={{this.handleChange}} placeholder="Cost" data-test-event-cost-input />
   </div>
-  <select local-class="user-selector" name="userId" id="user-select" onchange={{this.handleChange}}
+  <select tabindex="5" local-class="user-selector" name="userId" id="user-select" onchange={{this.handleChange}}
     data-test-spliter-select>
     <option value={{false}}>--Please select a splitter--</option>
     {{#each @users as |user| }}
     <option value={{user.id}}>{{user.name}}</option>
     {{/each}}
   </select>
-  <button onclick={{this.handleAdd}} data-test-add-event-btn>Add Event</button>
+  <button tabindex="5" onclick={{this.handleAdd}} data-test-add-event-btn>Add Event</button>
   <ul local-class="expense-item-container">
     {{#each @expenses as |exp|}}
     <li local-class="expense-item" data-test-expense-item>

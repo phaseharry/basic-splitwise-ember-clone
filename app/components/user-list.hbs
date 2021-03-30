@@ -1,8 +1,9 @@
 {{yield}}
 <div data-test-user-list-component>
   <h2>Splitters</h2>
-  <input value={{this.currentUser}} oninput={{this.handleChange}} placeholder="Name" data-test-user-input />
-  <button local-class="add-user-btn" onclick={{this.handleAdd}} data-test-add-user-btn>Add User</button>
+  <input tabindex="0" value={{this.currentUser}} oninput={{this.handleChange}} placeholder="Name"
+    data-test-user-input />
+  <button tabindex="1" local-class="add-user-btn" onclick={{this.handleAdd}} data-test-add-user-btn>Add User</button>
   <ul local-class="user-list-container" data-test-user-list>
     {{#each @users as |user|}}
     <li local-class="user-item" data-test-user-item>
