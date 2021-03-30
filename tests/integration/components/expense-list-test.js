@@ -11,7 +11,7 @@ module('Integration | Component | expense-list', function(hooks) {
     assert.dom('[data-test-expense-list-component]').exists('main element exists');
   });
 
-  test.skip('it displays a list of expenses that passed down to it', async function(assert) {
+  test('it displays a list of expenses that passed down to it', async function(assert) {
     this.testExpenses = emberArray([
       {
         "id": 1,
@@ -56,10 +56,21 @@ module('Integration | Component | expense-list', function(hooks) {
       }
     ]);
 
-    await render(hbs`<ExpenseList @expenses={{this.testExpenses}} @users={{this.testUsers}}/>`);
+    // used to stub external actions that's passed down to the expense-list component
+    this.set('methodStub', () => {});
+
+    const textHelper = str => {
+      return str.replace(/\s+/g, ' ').trim()
+    }
+
+    await render(hbs`<ExpenseList @expenses={{this.testExpenses}} @users={{this.testUsers}} @addExpense={{action methodStub}}
+      @deleteExpense={{methodStub}} @updateUser={{methodStub}}
+    />`);
     const expenseNodes = this.element.querySelectorAll('[data-test-expense-item]'); 
     assert.strictEqual(expenseNodes.length, 4);
-    // console.log(expenseNodes[0].textContent.replace(/^\s+|\s+$/g, ""));
-    // assert.strictEqual(this.cleanExpenseText(expenseNodes[0].textContent), 'Bar 120.58');
+    assert.strictEqual(textHelper(expenseNodes[0].textContent), 'Bar 120.58 -');
+    assert.strictEqual(textHelper(expenseNodes[1].textContent), 'Uber 45.90 -');
+    assert.strictEqual(textHelper(expenseNodes[2].textContent), 'Cookies 15.52 -');
+    assert.strictEqual(textHelper(expenseNodes[3].textContent), 'Dinner 70.63 -');
   })
 });

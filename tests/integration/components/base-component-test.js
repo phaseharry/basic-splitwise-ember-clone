@@ -4,6 +4,7 @@ import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import fillIn from '@ember/test-helpers/dom/fill-in';
 import click from '@ember/test-helpers/dom/click';
+import { A as emberArray } from '@ember/array';
 
 /* 
   expense-list  
@@ -47,7 +48,58 @@ module('Integration | Component | base-component', function(hooks) {
     await fillIn('[data-test-event-cost-input]', 167.13);
   })
 
-  test.skip('It displays the split amount as new expenses and users are added', async function(assert) {
-    await render(hbs`<BaseComponent />`);
+  test.only('It displays the split amount as new expenses and users are added', async function(assert) {
+    this.testExpenses = emberArray([
+      {
+        "id": 1,
+        "name": "Bar",
+        "cost": 120.58,
+        "userId": "1"
+      },
+      {
+        "id": 2,
+        "name": "Uber",
+        "cost": 45.9,
+        "userId": "2"
+      },
+      {
+        "id": 3,
+        "name": "Cookies",
+        "cost": 15.52,
+        "userId": "3"
+      },
+      {
+        "id": 4,
+        "name": "Dinner",
+        "cost": 70.63,
+        "userId": "1"
+      }
+    ]);
+    this.testUsers = emberArray([  
+      {
+        "name": "Jake",
+        "id": "1",
+        "amountSpent": 191.20999999999998
+      },
+      {
+        "name": "Kathy",
+        "id": "2",
+        "amountSpent": 45.9
+      },
+      {
+        "name": "Mike",
+        "id": "3",
+        "amountSpent": 15.52
+      }
+    ]);
+    this.totalExpense = 252.63;
+    this.userIdCount = 3;
+    this.expenseIdCount = 4;
+
+    await render(hbs`<BaseComponent @users={{this.testUsers}} @expenses={{this.testExpenses}}
+      @totalExpense={{this.totalExpense}} @userIds={{this.userIdCount}} @expenseIds={{this.expenseIdCount}}
+    />`);
+    const beforeAddExpList = this.element.querySelectorAll('[data-test-expense-item]');
+    assert.strictEqual(beforeAddExpList.length, 4);
   })
 });

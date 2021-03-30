@@ -7,8 +7,6 @@ import { A as emberArray } from '@ember/array';
 module('Integration | Component | tallied-results', function(hooks) {
   setupRenderingTest(hooks);
   test('taillied-results renders', async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
     await render(hbs`<TalliedResults />`);
     assert.dom('[data-test-tallied-results-component]').exists('main element exists');
   });
